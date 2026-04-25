@@ -20,8 +20,7 @@ sources:
             description: Primary key for orders data
             data_tests:
               - unique
-              - not_null
-              
+              - not_null             
         config:
           freshness:
             warn_after:
