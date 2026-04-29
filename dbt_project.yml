@@ -39,9 +39,12 @@ models:
   dbt-jaffle_shop:
     staging:
       +materialized: view
+# -- Customized schema name of storage, at the folder level.
+      #+schema: staging
+
 
     marts:
       +materialized: table
-  # -- Tested package with models. Unable to save due to incompatibility with Fusion activated.
+# -- Tested package with models. Unable to save due to incompatibility with Fusion activated.
   #snowflake_spend:
   # enabled: true

@@ -1,3 +1,13 @@
+/*
+-- Tested storage configuration in the model level. This will override folder level configuration.
+{{ 
+    config(
+        schema='staging'
+    )
+}}
+*/
+
+
 with 
 
 source as (
