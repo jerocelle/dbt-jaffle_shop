@@ -1,0 +1,10 @@
+functions:
+  - name: safe_divide       # required
+    description: Safely divide a numerator by a denominator where that value might be 0
+    arguments:
+      - name: numerator
+        data_type: number 
+      - name: denominator
+        data_type: number
+    returns:
+      data_type: number
