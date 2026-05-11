@@ -6,7 +6,7 @@ select * from {{ ref('stg_jaffle_shop__customers') }}
 
 orders as (
 
-select * from {{ ref('fct_orders') }}
+select * from {{ ref('int_orders') }}
 
 ),
 
@@ -18,7 +18,7 @@ customer_orders as (
         min(order_date) as first_order_date,
         max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders,
-        sum(amount) as lifetime_value
+        sum(order_value_dollars) as lifetime_value
 
     from orders
 
