@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized = 'incremental',
+        unique_key = 'order_id',
+        incremental_strategy = 'merge',
+    )
+}}
+
 with
 
     customer_orders as (select * from {{ ref("int_customers") }}),
@@ -21,3 +29,9 @@ with
 
 select *
 from final
+
+
+{% if is_incremental() %}
+    -- this filter will only be applied on an incremental run
+    where first_order_date > (select max(first_order_date) from {{ this }}) 
+{% endif %}
